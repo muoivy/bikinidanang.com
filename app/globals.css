@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: 16 185 129; /* emerald-500 */
+}
+
+html, body { height: 100%; }
+body { color: rgb(15 23 42); background: linear-gradient(to bottom, #ecfeff, #fff, #ecfdf5); }
+.container { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
+.section { @apply container py-10; }
+.card { @apply rounded-2xl bg-white p-3 shadow-sm ring-1 ring-slate-200; }
+.btn { @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold; }
+.btn-primary { @apply btn text-white; background-color: rgb(var(--brand)); }
+.btn-outline { @apply btn border border-slate-300; }
+.pill { @apply rounded-full border border-slate-300 px-4 py-2 text-sm; }

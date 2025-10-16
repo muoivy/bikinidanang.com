@@ -1,0 +1,34 @@
+{
+  "id": "p1",
+  "slug": "azure-tide-bikini",
+  "name": "Azure Tide Bikini",
+  "price": 459000,
+  "sale_price": null,
+  "currency": "VND",
+  "sizes": [
+    "S",
+    "M",
+    "L"
+  ],
+  "colors": [
+    "#0ea5e9",
+    "#f97316",
+    "#f43f5e"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1520975922284-07e34b31567f?q=80&w=1200&auto=format&fit=crop"
+  ],
+  "sku": "AZT-001",
+  "stock": 25,
+  "badges": [
+    "New"
+  ],
+  "collection": "bikini",
+  "tags": [
+    "bikini",
+    "uv",
+    "quick-dry"
+  ],
+  "summary": "Chất liệu nhanh khô, co giãn 4 chiều, thoải mái vận động.",
+  "updatedAt": "2025-10-16T00:00:00.000Z"
+}

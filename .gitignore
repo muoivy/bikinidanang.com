@@ -1,0 +1,17 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# next
+.next/
+out/
+.next-static/
+
+# testing
+coverage
+
+# misc
+.DS_Store
+*.log
+.env*
