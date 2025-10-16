@@ -1,39 +1,39 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200/70 bg-white/60 backdrop-blur">
-      <div className="container py-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 text-sm">
-        <div>
-          <p className="font-semibold">Bikini Boutique</p>
-          <p className="mt-2 text-slate-600">Thời trang biển cho mọi vóc dáng. Bền vững, thân thiện môi trường.</p>
+    <footer className="border-t border-stone-200/70 bg-[#f7f2eb]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 text-sm text-stone-600 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.24em] text-stone-400">Thương hiệu</p>
+          <p className="text-lg font-semibold text-stone-700">Bikini Danang</p>
+          <p>Phong cách tối giản, chất liệu thân thiện với biển Đà Nẵng.</p>
         </div>
-        <div>
-          <p className="font-semibold">Mua sắm</p>
-          <ul className="mt-2 space-y-2 text-slate-600">
-            <li><a href="/bikini" className="hover:text-emerald-700">Bikini</a></li>
-            <li><a href="/bikini/one-piece" className="hover:text-emerald-700">One‑piece</a></li>
-            <li><a href="/phu-kien" className="hover:text-emerald-700">Phụ kiện</a></li>
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.24em] text-stone-400">Khám phá</p>
+          <ul className="space-y-2">
+            <li><a className="transition-colors hover:text-stone-800" href="/bikini">Tất cả sản phẩm</a></li>
+            <li><a className="transition-colors hover:text-stone-800" href="/bikini/one-piece">One-piece</a></li>
+            <li><a className="transition-colors hover:text-stone-800" href="/phu-kien">Phụ kiện</a></li>
           </ul>
         </div>
-        <div>
-          <p className="font-semibold">CSKH</p>
-          <ul className="mt-2 space-y-2 text-slate-600">
-            <li><a href="/van-chuyen">Vận chuyển</a></li>
-            <li><a href="/doi-tra">Đổi trả</a></li>
-            <li><a href="/bao-mat">Bảo mật</a></li>
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.24em] text-stone-400">Hỗ trợ</p>
+          <ul className="space-y-2">
+            <li><a className="transition-colors hover:text-stone-800" href="/van-chuyen">Giao hàng</a></li>
+            <li><a className="transition-colors hover:text-stone-800" href="/doi-tra">Đổi trả</a></li>
+            <li><a className="transition-colors hover:text-stone-800" href="/bao-mat">Chính sách bảo mật</a></li>
           </ul>
         </div>
-        <div>
-          <p className="font-semibold">Liên hệ</p>
-          <p className="mt-2 text-slate-600">hello@bikini-boutique.vn</p>
-          <p className="text-slate-600">+84 90 000 0000</p>
-          <div className="mt-4 flex gap-3">
-            <a className="rounded-full border px-3 py-1" href="#">Instagram</a>
-            <a className="rounded-full border px-3 py-1" href="#">Facebook</a>
-            <a className="rounded-full border px-3 py-1" href="#">TikTok</a>
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.24em] text-stone-400">Liên hệ</p>
+          <p>hello@bikinidanang.com</p>
+          <p>+84 90 000 0000</p>
+          <div className="flex gap-3 pt-2 text-xs uppercase tracking-[0.2em]">
+            <a className="rounded-full border border-stone-300 px-3 py-1 transition-colors hover:border-stone-400 hover:text-stone-800" href="#">Instagram</a>
+            <a className="rounded-full border border-stone-300 px-3 py-1 transition-colors hover:border-stone-400 hover:text-stone-800" href="#">Facebook</a>
           </div>
         </div>
       </div>
-      <div className="text-center text-xs text-slate-500 pb-8">© 2025 Bikini Boutique. All rights reserved.</div>
+      <div className="pb-10 text-center text-xs uppercase tracking-[0.2em] text-stone-400">© 2025 Bikini Danang</div>
     </footer>
   );
 }
