@@ -19,31 +19,6 @@ Repo đang ở giai đoạn **starter/skeleton**:
 - Chưa triển khai business modules e-commerce hoàn chỉnh.
 
 ## 📂 Folder Structure
-
-### 1) Current structure (đang có trong repo)
-```text
-bikinidanang.com/
-├── public/
-├── src/
-│   ├── app/
-│   │   ├── favicon.ico
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   ├── components/
-│   │   └── ui/
-│   │       └── button.tsx
-│   └── lib/
-│       └── utils.ts
-├── components.json
-├── eslint.config.mjs
-├── next.config.ts
-├── package.json
-├── postcss.config.mjs
-└── tsconfig.json
-```
-
-### 2) Target structure (roadmap mở rộng)
 ```text
 src/
 ├── app/                 # routing, layout, metadata
