@@ -57,8 +57,8 @@ export default function Header() {
   return (
     <header className="border-b border-zinc-200 bg-white text-black">
       <div className="mx-auto flex h-[78px] w-full max-w-[1200px] items-center justify-between px-4 sm:px-6 lg:px-10">
-        <Link href="/" className="text-[38px] font-semibold lowercase leading-none tracking-[-0.03em]" aria-label="bikinidanang home">
-          bikinidanang
+        <Link href="/" className="text-[24px] font-medium lowercase leading-none tracking-[-0.03em]" aria-label="bikinidanang home">
+          bikinidanang.com
         </Link>
 
         <nav aria-label="Main navigation" className="hidden md:block">
