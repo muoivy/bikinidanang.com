@@ -12,6 +12,6 @@
 
 @layer components {
   .inner {
-    @apply mx-auto w-full max-w-[1440px] px-8 lg:px-10;
+    @apply mx-auto w-full max-w-full px-4 sm:px-5 lg:max-w-[1180px] lg:px-[30px];
   }
 }
