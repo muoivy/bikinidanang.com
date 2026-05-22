@@ -56,65 +56,67 @@ export default function Header() {
 
   return (
     <header className="border-b border-zinc-200 bg-white text-black">
-      <div className="mx-auto flex h-[78px] w-full max-w-[1200px] items-center justify-between px-4 sm:px-6 lg:px-10">
-        <Link href="/" className="text-[24px] font-medium lowercase leading-none tracking-[-0.03em]" aria-label="bikinidanang home">
-          bikinidanang.com
-        </Link>
+      <div className="inner flex h-[78px] items-center justify-between">
+          <Link href="/" className="text-[24px] font-medium lowercase leading-none tracking-[-0.03em]" aria-label="bikinidanang home">
+            bikinidanang.com
+          </Link>
 
-        <nav aria-label="Main navigation" className="hidden md:block">
-          <ul className="flex items-center gap-10">
-            {NAV_ITEMS.map((item, index) => (
+          <nav aria-label="Main navigation" className="hidden md:block">
+            <ul className="flex items-center gap-10">
+              {NAV_ITEMS.map((item, index) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`text-sm leading-6 transition-colors ${index === 0 ? 'font-medium text-black' : 'font-normal text-zinc-500 hover:text-black'}`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="flex items-center gap-1.5 sm:gap-2.5">
+            <button type="button" aria-label="Search" className="rounded-full p-1.5 transition hover:bg-zinc-100">
+              <SearchIcon />
+            </button>
+            <button type="button" aria-label="Account" className="rounded-full p-1.5 transition hover:bg-zinc-100">
+              <UserIcon />
+            </button>
+            <button type="button" aria-label="Cart" className="relative rounded-full p-1.5 transition hover:bg-zinc-100">
+              <CartIcon />
+              <span className="absolute -right-1 -top-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-black px-1 text-[10px] font-semibold leading-none text-white">
+                2
+              </span>
+            </button>
+
+            <button
+              type="button"
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-nav"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              className="ml-0.5 rounded-full p-1.5 transition hover:bg-zinc-100 md:hidden"
+            >
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                {isMobileMenuOpen ? <path d="M6 6 18 18M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+              </svg>
+            </button>
+          </div>
+      </div>
+
+      <nav id="mobile-nav" aria-label="Mobile navigation" className={`${isMobileMenuOpen ? 'block' : 'hidden'} border-t border-zinc-200 py-4 md:hidden`}>
+        <div className="inner">
+          <ul className="space-y-3">
+            {NAV_ITEMS.map((item) => (
               <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`text-sm leading-6 transition-colors ${index === 0 ? 'font-medium text-black' : 'font-normal text-zinc-500 hover:text-black'}`}
-                >
+                <Link href={item.href} className="block text-sm font-medium text-zinc-800 transition-colors hover:text-black">
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
-        </nav>
-
-        <div className="flex items-center gap-1.5 sm:gap-2.5">
-          <button type="button" aria-label="Search" className="rounded-full p-1.5 transition hover:bg-zinc-100">
-            <SearchIcon />
-          </button>
-          <button type="button" aria-label="Account" className="rounded-full p-1.5 transition hover:bg-zinc-100">
-            <UserIcon />
-          </button>
-          <button type="button" aria-label="Cart" className="relative rounded-full p-1.5 transition hover:bg-zinc-100">
-            <CartIcon />
-            <span className="absolute -right-1 -top-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-black px-1 text-[10px] font-semibold leading-none text-white">
-              2
-            </span>
-          </button>
-
-          <button
-            type="button"
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-nav"
-            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-            className="ml-0.5 rounded-full p-1.5 transition hover:bg-zinc-100 md:hidden"
-          >
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              {isMobileMenuOpen ? <path d="M6 6 18 18M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
-            </svg>
-          </button>
         </div>
-      </div>
-
-      <nav id="mobile-nav" aria-label="Mobile navigation" className={`${isMobileMenuOpen ? 'block' : 'hidden'} border-t border-zinc-200 px-4 py-4 md:hidden`}>
-        <ul className="space-y-3">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href} className="block text-sm font-medium text-zinc-800 transition-colors hover:text-black">
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
       </nav>
     </header>
   );
