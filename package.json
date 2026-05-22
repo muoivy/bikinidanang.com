@@ -1,0 +1,33 @@
+{
+  "name": "bikinidanang",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --check .",
+    "format:write": "prettier --write ."
+  },
+  "dependencies": {
+    "graphql": "^16.11.0",
+    "graphql-request": "^7.3.1",
+    "next": "16.0.1",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.31",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "eslint": "^9.28.0",
+    "eslint-config-next": "16.0.1",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "prettier": "^3.5.3",
+    "tailwindcss": "^4.1.8",
+    "typescript": "^5.8.3"
+  }
+}
