@@ -1,0 +1,13 @@
+# Bắt buộc Git phải sử dụng LF cho toàn bộ các file text trong dự án này
+* text eol=lf
+
+# (Tùy chọn) Bỏ qua kiểm tra xuống dòng cho các file nhị phân (hình ảnh, font...)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary

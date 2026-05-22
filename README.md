@@ -22,16 +22,30 @@ Dự án áp dụng kiến trúc tách rời (Headless), phân định rõ ràng
 
 ## 📂 Folder Structure
 ```text
-src/
-├── app/               # Next.js App Router pages
-├── components/        # Tách biệt toàn bộ UI tại đây
-│   ├── ui/            # Các component từ shadcn/ui
-│   ├── layout/        # Header, Footer, Sidebar
-│   └── ecommerce/     # ProductCard, Cart, Checkout
-├── lib/               # Tiện ích, cấu hình WordPress/GraphQL
-├── types/             # TypeScript interfaces cho WP (Product, Post)
-├── hooks/             # React Custom Hooks
-└── constants/         # Biến môi trường public, config SEO mặc định
+bikinidanang/
+├── .next/                 # Thư mục build của Next.js
+├── node_modules/          # Các gói thư viện phụ thuộc
+├── src/
+│   ├── app/               # Next.js App Router (Quản lý các trang và layout toàn cục)
+│   │   ├── globals.css    # File CSS toàn cục khởi tạo Tailwind CSS
+│   │   ├── layout.tsx     # Layout gốc của toàn bộ website
+│   │   └── page.tsx       # Trang chủ (Homepage)
+│   ├── components/        # Nơi chứa toàn bộ UI Components (Tách biệt hoàn toàn với Data)
+│   │   ├── ui/            # Thành phần lõi (Button, Dialog...) tải về từ shadcn/ui
+│   │   ├── layout/        # Khung giao diện dùng chung (Header, Footer, MobileMenu)
+│   │   └── ecommerce/     # Component đặc thù bán hàng (ProductCard, MiniCart)
+│   ├── lib/               # Khởi tạo kết nối WordPress GraphQL, hàm fetching API
+│   ├── types/             # TypeScript interfaces cho WordPress (Product, Post)
+│   ├── hooks/             # Các React Custom Hooks xử lý logic (Giỏ hàng, Menu)
+│   └── constants/         # Chứa cấu hình SEO mặc định và các hằng số hệ thống
+├── .env.example           # File cấu hình biến môi trường mẫu công khai
+├── .env.local             # File chứa biến môi trường thật (Tuyệt đối không commit)
+├── .gitignore             # File cấu hình Git để ẩn/hiện file nhạy cảm và thư mục rác
+├── components.json        # File cấu hình đường dẫn và preset Vega của thư viện shadcn/ui
+├── next.config.js         # File cấu hình cấu trúc Next.js (Cần thiết để cho phép tải ảnh từ WordPress)
+├── package.json           # Quản lý script chạy (`dev --turbo`) và danh sách các package
+├── tailwind.config.js     # File tùy biến cấu hình màu đơn sắc đen và phông chữ Poppins
+└── tsconfig.json          # Cấu hình TypeScript (Strict Mode) và Import Alias `@/*`
 ```
 
 ## ⚙️ Hướng Dẫn Chạy Môi Trường Cục Bộ (Local Setup)
@@ -56,9 +70,10 @@ Tạo file .env.local từ file mẫu và điền các thông tin kết nối c�
 cp .env.example .env.local
 ```
 Mở file .env.local và đảm bảo có các biến sau:
-```bash
-NEXT_PUBLIC_WP_GRAPHQL_URL=[http://bikinidanang.local/graphql](http://bikinidanang.local/graphql)
+```env
+NEXT_PUBLIC_WP_GRAPHQL_URL=http://bikinidanang.local/graphql
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_WP_URL=http://bikinidanang.local
 ```
 (Lưu ý: Ở giai đoạn đầu dựng UI, bạn chưa cần cài WordPress local ngay. Khi cần fetch data thực, hãy sử dụng Local by Flywheel để tạo site bikinidanang.local).
 
