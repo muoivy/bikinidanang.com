@@ -1,23 +1,11 @@
-# Bikinidanang Shop – Next.js 15 + TypeScript + Tailwind
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Quick start
+## Getting Started
+
+First, run the development server:
+
 ```bash
-pnpm i # hoặc yarn / npm
 pnpm dev
 ```
 
-## Main directory
-- `app/` – App Router, pages (listing, product), `robots.ts`, `sitemap.ts`
-- `components/` – Header, Footer, ProductCard
-- `lib/` – đọc JSON, SEO helpers
-- `data/` – JSON sản phẩm & bộ sưu tập
-
-## SEO
-- URL: `/bikini` và `/bikini/[slug]`
-- `generateMetadata()` + JSON-LD Product
-- ISR: `export const revalidate = 300`
-
-## Next Step
-- Thêm trang `/bikini/[category]` lọc theo `collection`
-- Tích hợp Decap CMS hoặc admin in-app để ghi JSON
-- Cổng thanh toán (Stripe/ VNPAY/ MoMo) khi sẵn sàng
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
