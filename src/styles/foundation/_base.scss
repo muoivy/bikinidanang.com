@@ -28,7 +28,6 @@ html {
 }
 
 body {
-  font-family: $noto-sans;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.5;
@@ -125,9 +124,8 @@ button, a, pre, input, select, button, textarea, [role=button] {
   }
 }
 
-.l-inner {
-  position: relative;
-  padding: 0 1.6rem;
+.inner {
+  @apply mx-auto w-full max-w-full px-4 sm:px-5 lg:max-w-[1180px] lg:px-[30px];
 }
 
 @include mq(pc) {

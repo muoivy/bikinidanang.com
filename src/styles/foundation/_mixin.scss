@@ -136,13 +136,25 @@ $mq-breakpoints: (
   background-image: url(#{$url});
 
   // Set giá trị mặc định cho background-size
-  background-size: if($background-size == null, contain, $background-size);
+  @if $background-size == null {
+    background-size: contain;
+  } @else {
+    background-size: $background-size;
+  }
 
   // Set giá trị mặc định cho background-position
-  background-position: if($background-position == null, center, $background-position);
+  @if $background-position == null {
+    background-position: center;
+  } @else {
+    background-position: $background-position;
+  }
 
   // Truyền giá trị cho background-repeat
-  background-repeat: if($background-repeat == null, no-repeat, $background-repeat);
+  @if $background-repeat == null {
+    background-repeat: no-repeat;
+  } @else {
+    background-repeat: $background-repeat;
+  }
 
   // Nếu có giá trị cho background-attachment thì áp dụng
   @if $background-attachment != null {
