@@ -1,9 +1,14 @@
 @use "./init" as *;
 
-// -----------------------------------------------------------------
-// Base
-// -----------------------------------------------------------------
-*, *::before, *::after {
+/*
+ * Hybrid styling baseline:
+ * - Tailwind/shadcn own most component styling.
+ * - This file keeps only low-risk global defaults and layout helpers.
+ */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -14,111 +19,70 @@
 
 html {
   font-size: 62.5%;
+
   &.no-scroll {
     overflow: hidden;
     touch-action: none;
   }
-  // @media only screen and (max-width: 1920px) {
-  //   font-size: calc(var(--vw)/192);  // Desgin PC width 2000px/10
-  // }
-  @media (max-width: 375px) {
-    font-size: calc(var(--vw)/37.5);
-  }
 
+  @media (max-width: 375px) {
+    font-size: calc(var(--vw) / 37.5);
+  }
 }
 
 body {
+  margin: 0;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.1em;
   color: #000;
   -webkit-text-size-adjust: 100%;
-  font-feature-settings: 'palt' on;
+  font-feature-settings: "palt" on;
   background: #fff;
-  @include mq(sp) {
-
-  }
 }
 
 a {
-  transition: all 0.3s;
-  outline: none;
-  text-decoration: none;
   color: inherit;
-  -webkit-touch-callout: none;
-  -webkit-text-size-adjust: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-img {
+img,
+svg,
+video,
+canvas {
+  display: block;
   max-width: 100%;
-  vertical-align: middle;
   height: auto;
-  @include mq(sp) {
-    width: 100%;
-  }
 }
 
 picture {
   display: block;
 }
 
-button {
-  transition: all .3s ease-out;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: none transparent;
+/* shadcn-safe: avoid replacing component styles globally */
+button,
+input,
+select,
+textarea {
+  font: inherit;
   color: inherit;
-  font-size: inherit;
-  line-height: 1;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-}
-
-input {
-  outline: none;
-  border-radius: 0;
-  transition: all .3s ease-out;
 }
 
 textarea {
-  outline: none;
   resize: vertical;
-  -webkit-appearance: none;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #BABABA;
-  opacity: 1; /* Firefox */
+::placeholder {
+  color: #bababa;
+  opacity: 1;
 }
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #BABABA;
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: #BABABA;
-}
-
-button, a, pre, input, select, button, textarea, [role=button] {
-  &:not(:disabled) {
-    // &:focus-visible {
-    //   outline: 5px auto Highlight;
-    //   outline: -webkit-focus-ring-color auto 1px;
-    // }
-  }
-}
-
-
 
 #wrapper {
   position: relative;
   overflow: hidden;
+
   @media (min-width: 960px) {
     margin-left: 34.4rem;
   }
@@ -129,15 +93,15 @@ button, a, pre, input, select, button, textarea, [role=button] {
 }
 
 @include mq(pc) {
-	.is-sp {
-		display: none !important;
-	}
+  .is-sp {
+    display: none !important;
+  }
 }
 
 @include mq(sp) {
-	.is-pc {
-		display: none !important;
-	}
+  .is-pc {
+    display: none !important;
+  }
 }
 
 .is-hidden {
@@ -145,14 +109,11 @@ button, a, pre, input, select, button, textarea, [role=button] {
 }
 
 .u-img-fit {
-  font-family: "object-fit: cover;";
-  height: 100%;
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 .txt-blue {
-  color: #0381E8;
+  color: #0381e8;
 }
-
-
