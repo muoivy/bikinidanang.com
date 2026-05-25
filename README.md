@@ -60,7 +60,7 @@ NEXT_PUBLIC_WP_URL=http://bikinidanang.local
 pnpm dev
 ```
 
-> Nếu muốn dùng Turbopack explicit, có thể chạy: `pnpm dev -- --turbo`.
+> Nếu muốn dùng Turbopack explicit, có thể chạy: `pnpm dev --turbo`.
 
 4. **Mở trình duyệt**
 - http://localhost:3000

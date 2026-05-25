@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={`${poppins.variable} font-sans antialiased`}>
+      <body className={`${poppins.className} ${poppins.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

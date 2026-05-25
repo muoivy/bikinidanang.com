@@ -15,7 +15,7 @@ export function SiteHeader({ navItems }: SiteHeaderProps) {
         {/* Logo */}
         <Link
           href="/"
-          className="text-base font-medium tracking-tight text-neutral-900"
+          className="font-medium tracking-tight text-neutral-900"
           aria-label={`${siteConfig.name} — Trang chủ`}
         >
           {siteConfig.name}
@@ -30,7 +30,7 @@ export function SiteHeader({ navItems }: SiteHeaderProps) {
                   href={item.href}
                   aria-current={item.active ? "page" : undefined}
                   className={[
-                    "text-sm font-medium leading-6 transition-colors",
+                    "font-medium leading-6 transition-colors",
                     item.active
                       ? "text-neutral-900"
                       : "text-zinc-500 hover:text-neutral-900",
