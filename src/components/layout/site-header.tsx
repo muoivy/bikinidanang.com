@@ -12,7 +12,7 @@ import {
   Heart,
 } from "lucide-react";
 
-import type { NavItem } from "@/entities/navigation/types";
+import type { NavItem, NavMenuItem } from "@/entities/navigation/types";
 import { siteConfig } from "@/shared/config/site";
 import { CartBadge } from "./cart-badge";
 
@@ -22,6 +22,39 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ navItems }: SiteHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const renderSubMenuItem = (subMenu: NavMenuItem) => {
+    const hasNestedMenu = Boolean(subMenu.children?.length);
+
+    return (
+      <li key={subMenu.href} className={hasNestedMenu ? "group/submenu relative w-full" : "w-full"}>
+        <Link
+          href={subMenu.href}
+          className="flex w-full items-center justify-between text-sm font-semibold leading-5 text-neutral-900 transition-colors hover:text-neutral-600"
+        >
+          <span>{subMenu.label}</span>
+          {hasNestedMenu ? <ChevronDown size={16} strokeWidth={1.5} className="-rotate-90" /> : null}
+        </Link>
+
+        {hasNestedMenu ? (
+          <div className="pointer-events-none absolute left-full top-0 z-30 -mr-3 opacity-0 transition-all duration-200 group-hover/submenu:pointer-events-auto group-hover/submenu:opacity-100">
+            <ul className="inline-flex min-w-[208px] flex-col items-start justify-start gap-6 bg-white px-7 py-6 shadow-md ring-1 ring-black/5" role="list">
+              {subMenu.children?.map((nestedMenu) => (
+                <li key={nestedMenu.href}>
+                  <Link
+                    href={nestedMenu.href}
+                    className="text-sm font-semibold leading-5 text-neutral-900 transition-colors hover:text-neutral-600"
+                  >
+                    {nestedMenu.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+      </li>
+    );
+  };
 
   return (
     <header className="border-b border-zinc-200 bg-white">
@@ -55,10 +88,10 @@ export function SiteHeader({ navItems }: SiteHeaderProps) {
         <nav aria-label="Main navigation" className="hidden md:block">
           <ul className="flex items-center gap-10" role="list">
             {navItems.map((item) => {
-              const hasDropdown = item.label === "Sản phẩm";
+              const hasDropdown = Boolean(item.children?.length);
 
               return (
-                <li key={item.href}>
+                <li key={item.href} className={hasDropdown ? "group relative" : undefined}>
                   <Link
                     href={item.href}
                     aria-current={item.active ? "page" : undefined}
@@ -67,6 +100,14 @@ export function SiteHeader({ navItems }: SiteHeaderProps) {
                     {item.label}
                     {hasDropdown ? <ChevronDown size={18} strokeWidth={1.5} /> : null}
                   </Link>
+
+                  {hasDropdown ? (
+                    <div className="pointer-events-none absolute left-0 top-full z-20 pt-5 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+                      <ul className="inline-flex min-w-[208px] flex-col items-start justify-start gap-6 bg-white px-7 py-6 shadow-md ring-1 ring-black/5" role="list">
+                        {item.children?.map((subMenu) => renderSubMenuItem(subMenu))}
+                      </ul>
+                    </div>
+                  ) : null}
                 </li>
               );
             })}
@@ -124,7 +165,7 @@ export function SiteHeader({ navItems }: SiteHeaderProps) {
               <nav>
                 <ul className="space-y-4" role="list">
                   {navItems.map((item) => {
-                    const hasDropdown = item.label === "Shop" || item.label === "Product";
+                    const hasDropdown = Boolean(item.children?.length);
                     return (
                       <li key={`mobile-${item.href}`} className="border-b border-gray-200 pb-2">
                         <Link
