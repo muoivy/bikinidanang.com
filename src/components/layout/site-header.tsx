@@ -1,24 +1,24 @@
 import Link from "next/link";
 import { CircleUserRound, Search, ShoppingBag } from "lucide-react";
 
-const NAV_ITEMS = [
-  { label: "Home", href: "/", active: true },
-  { label: "Shop", href: "/shop" },
-  { label: "Product", href: "/product" },
-  { label: "Contact Us", href: "/contact" },
-] as const;
+import type { NavItem } from "@/entities/navigation/types";
+import { siteConfig } from "@/shared/config/site";
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  navItems: NavItem[];
+};
+
+export function SiteHeader({ navItems }: SiteHeaderProps) {
   return (
     <header className="border-b border-zinc-200 bg-white">
       <div className="inner flex h-20 items-center justify-between gap-6">
         <Link href="/" className="text-4 font-medium tracking-tight text-neutral-900">
-          bikinidanang
+          {siteConfig.name}
         </Link>
 
         <nav aria-label="Main navigation" className="hidden md:block">
           <ul className="flex items-center gap-10">
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}

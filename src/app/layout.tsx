@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+
+import { siteConfig } from "@/shared/config/site";
+
 import "../styles/style.scss";
 
 const poppins = Poppins({
@@ -8,8 +11,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "bikinidanang.com",
-  description: "Clean starter",
+  title: siteConfig.name,
+  description: siteConfig.description,
 };
 
 export default function RootLayout({
