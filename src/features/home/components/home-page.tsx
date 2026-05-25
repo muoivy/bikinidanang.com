@@ -1,10 +1,13 @@
 import { SiteHeader } from "@/components/layout/site-header";
-import { homeNavItems } from "@/features/home/constants/nav-items";
+import { NAV_ITEMS } from "@/shared/config/navigation";
 
 export function HomePage() {
   return (
-    <main>
-      <SiteHeader navItems={homeNavItems} />
-    </main>
+    <>
+      <SiteHeader navItems={NAV_ITEMS} />
+      <main>
+        {/* Homepage sections go here */}
+      </main>
+    </>
   );
 }

@@ -3,16 +3,25 @@ import { Poppins } from "next/font/google";
 
 import { siteConfig } from "@/shared/config/site";
 
-import "../styles/style.scss";
+// Single global stylesheet — Tailwind entry + minimal resets
+import "../styles/globals.scss";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  ),
 };
 
 export default function RootLayout({
@@ -22,7 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={poppins.className}>{children}</body>
+      <body className={`${poppins.variable} font-sans antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }

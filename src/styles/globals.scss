@@ -1,0 +1,175 @@
+// =============================================================================
+// globals.scss
+// Single entry point for all styles.
+// Rule: Tailwind handles components. This file handles ONLY:
+//   1. Tailwind CSS v4 entry
+//   2. Low-risk global resets that don't conflict with shadcn/ui
+//   3. CSS custom properties (design tokens)
+// =============================================================================
+
+@use "tailwindcss";
+
+// -----------------------------------------------------------------------------
+// CSS Custom Properties — Design Tokens
+// -----------------------------------------------------------------------------
+:root {
+  --vw: 100vw;
+  --vh: 1vh;
+
+  // Brand colors (monochrome)
+  --color-foreground: #0a0a0a;
+  --color-background: #ffffff;
+  --color-muted: #71717a;       // zinc-500
+  --color-border: #e4e4e7;      // zinc-200
+  --color-surface: #fafafa;     // zinc-50
+
+  // Header
+  --header-height: 5rem; // h-20 = 80px
+}
+
+// -----------------------------------------------------------------------------
+// Box Model Reset
+// Safe: doesn't conflict with shadcn/ui
+// -----------------------------------------------------------------------------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// -----------------------------------------------------------------------------
+// HTML / Body
+// Safe: base font settings only
+// -----------------------------------------------------------------------------
+html {
+  font-size: 62.5%; // 1rem = 10px (for SCSS rem calculations if needed)
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
+  // Responsive font floor at 320px
+  @media (max-width: 375px) {
+    font-size: calc(var(--vw) / 37.5);
+  }
+
+  &.no-scroll {
+    overflow: hidden;
+    touch-action: none;
+  }
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+  font-feature-settings: "palt" on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// -----------------------------------------------------------------------------
+// Typography Resets
+// Safe: base only, shadcn handles component-level typography
+// -----------------------------------------------------------------------------
+a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+// -----------------------------------------------------------------------------
+// Media Resets
+// Safe: prevents layout overflow from media elements
+// -----------------------------------------------------------------------------
+img,
+svg,
+video,
+canvas,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+picture {
+  display: block;
+}
+
+// -----------------------------------------------------------------------------
+// Form Element Resets
+// NOTE: keep minimal — shadcn/ui manages its own form element styles
+// -----------------------------------------------------------------------------
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+::placeholder {
+  color: var(--color-muted);
+  opacity: 1;
+}
+
+// -----------------------------------------------------------------------------
+// Layout Helpers
+// Only helpers that cannot be expressed cleanly in Tailwind
+// -----------------------------------------------------------------------------
+
+// .inner = content container — mirrors Tailwind: mx-auto w-full max-w-[1180px] px-4 sm:px-5 lg:px-[30px]
+// Used in: SiteHeader, page sections
+// NOTE: If you need this only in one component, use Tailwind classes directly.
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 100%;
+  padding-left: 1rem;    // px-4
+  padding-right: 1rem;
+
+  @media (min-width: 640px) { // sm:
+    padding-left: 1.25rem;    // px-5
+    padding-right: 1.25rem;
+  }
+
+  @media (min-width: 1024px) { // lg:
+    max-width: 1180px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+// Utility: visually hidden but accessible (screen readers)
+// Usage: <span class="sr-only">Cart, 2 items</span>
+// NOTE: Tailwind has .sr-only built-in — use that instead when possible
+.u-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Utility: object-fit cover helper for image containers
+// Usage: <img class="u-img-fit" />
+// NOTE: Prefer Tailwind `object-cover w-full h-full` when possible
+.u-img-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
