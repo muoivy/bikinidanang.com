@@ -4,7 +4,8 @@ import type { NavItem } from "@/entities/navigation/types";
 // This is site-wide config, NOT feature-specific
 export const NAV_ITEMS: NavItem[] = [
   { label: "Trang chủ", href: "/", active: true },
-  { label: "Cửa hàng", href: "/shop" },
-  { label: "Sản phẩm", href: "/product" },
-  { label: "Liên hệ", href: "/contact" },
+  { label: "Giới thiệu", href: "/gioi-thieu" },
+  { label: "Sản phẩm", href: "/san-pham" },
+  { label: "Tin tức", href: "/tin-tuc" },
+  { label: "Liên hệ", href: "/lien-he" },
 ] as const;
