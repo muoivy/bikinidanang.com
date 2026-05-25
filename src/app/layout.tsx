@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
 
 import { siteConfig } from "@/shared/config/site";
 
 // Single global stylesheet — Tailwind entry + minimal resets
 import "../styles/globals.scss";
 
-const poppins = Poppins({
+const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-poppins",
+  variable: "--font-be-vietnam-pro",
   display: "swap",
 });
 
@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={`${poppins.className} ${poppins.variable} font-sans antialiased`}>
+      <body className={`${beVietnamPro.className} ${beVietnamPro.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

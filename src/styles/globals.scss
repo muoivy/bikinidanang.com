@@ -10,7 +10,7 @@
 @use "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
 }
 
 // -----------------------------------------------------------------------------
@@ -63,7 +63,7 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.5;
