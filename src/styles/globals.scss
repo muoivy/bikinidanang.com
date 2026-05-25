@@ -46,7 +46,7 @@
 // Safe: base font settings only
 // -----------------------------------------------------------------------------
 html {
-  font-size: 62.5%; // 1rem = 10px (for SCSS rem calculations if needed)
+  font-size: 100%; // 1rem = 16px (for SCSS rem calculations if needed)
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 

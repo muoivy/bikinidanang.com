@@ -82,14 +82,14 @@ export function SiteHeader({ navItems }: SiteHeaderProps) {
           </button>
           <Link href="/cart" aria-label="Giỏ hàng" className="relative rounded-md p-1">
             <ShoppingBag size={24} strokeWidth={1.5} />
-            <CartBadge />
+            <CartBadge className="-right-1 -top-1 h-4 min-w-4 px-1 text-[9px]" />
           </Link>
         </div>
 
         <div className="flex items-center gap-4 text-neutral-900 md:hidden">
           <Link href="/cart" aria-label="Giỏ hàng" className="relative rounded-md p-1">
             <ShoppingBag size={24} strokeWidth={1.5} />
-            <CartBadge />
+            <CartBadge className="-right-1 -top-1 h-5 min-w-5 px-1 text-[10px]" />
           </Link>
         </div>
       </div>
@@ -149,7 +149,7 @@ export function SiteHeader({ navItems }: SiteHeaderProps) {
                     <span className="text-lg font-medium">Cart</span>
                     <Link href="/cart" className="relative rounded-md p-1 text-neutral-900">
                       <ShoppingBag size={24} strokeWidth={1.5} />
-                      <CartBadge />
+                      <CartBadge className="-right-1 -top-1 h-5 min-w-5 px-1 text-[10px]" />
                     </Link>
                   </div>
                 </div>
